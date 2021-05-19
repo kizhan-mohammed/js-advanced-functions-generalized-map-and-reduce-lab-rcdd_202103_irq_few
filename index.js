@@ -9,9 +9,9 @@ const map = (array, callBackFunc)=>{
   return newArray;
 };
 
-const reduce = (array, callBackFunc, begin)=>{
-  if (begin) {
-      let entire = begin;
+const reduce = (array, callBackFunc, starter)=>{
+  if (starter) {
+      let entire = starter;
       for (let i = 0; i < array.length; i++) {
         let element = array[i];
         entire = callBackFunc(entire, element);
