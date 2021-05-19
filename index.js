@@ -1,20 +1,20 @@
 // Add your functions here
 
-const map = (array, fn)=>{
+const map = (array, callBackFunc)=>{
   let newArray = [];
   for (let i = 0; i < array.length; i++) {
     let element = array[i];
-    newArray.push(fn(element));
+    newArray.push(callBackFunc(element));
   }
   return newArray;
 };
 
-const reduce = (array, fn, begin)=>{
+const reduce = (array, callBackFunc, begin)=>{
   if (begin) {
       let entire = begin;
       for (let i = 0; i < array.length; i++) {
         let element = array[i];
-        entire = fn(entire, element);
+        entire = callBackFunc(entire, element);
       }
       return entire;
   }
@@ -22,7 +22,7 @@ const reduce = (array, fn, begin)=>{
       let total = array[0];
       for (let i = 1; i < array.length; i++) {
         let element = array[i];
-        total = fn(total, element);
+        total = callBackFunc(total, element);
       }
       return total;
   }
