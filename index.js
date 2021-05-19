@@ -11,20 +11,20 @@ const map = (sourceArray, fn)=>{
 
 const reduce = (sourceArray, fn, begin)=>{
   if (begin) {
-      let entire = begin
+      let entire = begin;
       for (let i = 0; i < sourceArray.length; i++) {
-        let element = sourceArray[i]
-        entire = fn(entire, element)
+        let element = sourceArray[i];
+        entire = fn(entire, element);
       }
-      return entire
+      return entire;
   }
   else {
-      let total = sourceArray[0]
+      let total = sourceArray[0];
       for (let i = 1; i < sourceArray.length; i++) {
-        let element = sourceArray[i]
-        total = fn(total, element)
+        let element = sourceArray[i];
+        total = fn(total, element);
       }
-      return total
+      return total;
   }
 
 };
