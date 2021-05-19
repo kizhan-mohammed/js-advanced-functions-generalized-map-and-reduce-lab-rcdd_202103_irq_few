@@ -1,49 +1,30 @@
 // Add your functions here
 
-const mapToNegativize = sourceArray =>{
-  let newArray = []
-  sourceArray.forEach(element => newArray.push(-1 * element))
-  return newArray
-}
-
-const mapToNoChange = sourceArray =>{
-  return sourceArray
-}
-
-const mapToDouble = sourceArray =>{
-  let newArray = []
-  sourceArray.forEach(element => newArray.push(element * 2))
-  return newArray
-}
-
-const mapToSquare = sourceArray =>{
-  let newArray = []
-  sourceArray.forEach(element => newArray.push(element * element))
-  return newArray
-}
-
-const reduceToTotal = (sourceArray, startingPoint = 0) =>{
-  let total = startingPoint
-  sourceArray.forEach(element => total += element)
-  return total
-}
-
-const reduceToAllTrue = sourceArray =>{
-  let returnValue = true
-  sourceArray.forEach(value => {
-    if (value === false){
-    returnValue = false
-    }
-  })
-  return returnValue
-}
-
-const reduceToAnyTrue = sourceArray =>{
-    let returnValue = false
-    sourceArray.forEach(value => {
-      if (value === true){
-        returnValue = true
-      }
-    })
-    return returnValue
+const map = (sourceArray, fn)=>{
+  let newArray = [];
+  for (let i = 0; i < sourceArray.length; i++) {
+    let element = sourceArray[i];
+    newArray.push(fn(element));
   }
+  return newArray;
+};
+
+const reduce = (sourceArray, fn, begin)=>{
+  if (begin) {
+      let entire = begin
+      for (let i = 0; i < sourceArray.length; i++) {
+        let element = sourceArray[i]
+        entire = fn(entire, element)
+      }
+      return entire
+  }
+  else {
+      let total = sourceArray[0]
+      for (let i = 1; i < sourceArray.length; i++) {
+        let element = sourceArray[i]
+        total = fn(total, element)
+      }
+      return total
+  }
+
+};
