@@ -22,7 +22,7 @@ const reduce = (sourceArray, callBackFunc, begin)=>{
       let total = sourceArray[0];
       for (let i = 1; i < sourceArray.length; i++) {
         let element = sourceArray[i];
-        total = fn(total, element);
+        total = callBackFunc(total, element);
       }
       return total;
   }
